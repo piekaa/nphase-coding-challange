@@ -1,5 +1,6 @@
 package com.nphase.service;
 
+import com.nphase.config.DiscountConfig;
 import com.nphase.entity.Product;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -7,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 
 public class PriceServiceTest {
-    private final PriceService discountService = new PriceService();
+    private final PriceService discountService = new PriceService(new DiscountConfig(BigDecimal.valueOf(0.1), 3));
 
     @Test
     public void calculatesPriceWithDiscount() {

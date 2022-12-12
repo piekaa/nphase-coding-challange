@@ -1,6 +1,7 @@
 package com.nphase.service;
 
 
+import com.nphase.config.DiscountConfig;
 import com.nphase.entity.Product;
 import com.nphase.entity.ShoppingCart;
 import org.junit.jupiter.api.Assertions;
@@ -10,7 +11,9 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 
 public class ShoppingCartServiceTest {
-    private final ShoppingCartService service = new ShoppingCartService(new PriceService(), new CategoryService());
+    private final ShoppingCartService service = new ShoppingCartService(
+            new PriceService(new DiscountConfig(BigDecimal.valueOf(0.1), 3)),
+            new CategoryService());
 
     @Test
     public void calculatesPrice()  {
