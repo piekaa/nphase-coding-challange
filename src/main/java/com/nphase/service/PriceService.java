@@ -6,8 +6,8 @@ import java.math.BigDecimal;
 
 class PriceService {
 
-    BigDecimal price(Product product) {
-        return product.getQuantity() > 3 ? priceWithDiscount(product)
+    BigDecimal price(Product product, int quantityInCategory) {
+        return quantityInCategory > 3 ? priceWithDiscount(product)
                 : priceWithoutDiscount(product);
     }
 

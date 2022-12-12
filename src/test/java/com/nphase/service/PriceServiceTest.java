@@ -12,7 +12,7 @@ public class PriceServiceTest {
     @Test
     public void calculatesPriceWithDiscount() {
         BigDecimal result = discountService.price(
-                new Product("Tea", BigDecimal.valueOf(5.0), 5));
+                new Product("Tea", BigDecimal.valueOf(5.0), 5, "drinks"), 5);
 
         Assertions.assertEquals(0, BigDecimal.valueOf(22.5).compareTo(result));
     }
@@ -20,7 +20,7 @@ public class PriceServiceTest {
     @Test
     public void calculatesPriceWithoutDiscount() {
         BigDecimal result = discountService.price(
-                new Product("Coffee", BigDecimal.valueOf(3.5), 3));
+                new Product("Coffee", BigDecimal.valueOf(3.5), 3, "drinks"), 3);
 
         Assertions.assertEquals(0, BigDecimal.valueOf(10.5).compareTo(result));
     }
